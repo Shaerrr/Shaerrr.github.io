@@ -48,7 +48,10 @@
 </head>
 
 <body
-    class="bg-[#fafafa] text-slate-800 font-kr antialiased selection:bg-slate-800 selection:text-white tracking-tight">
+    class="bg-white text-slate-800 font-kr antialiased selection:bg-slate-800 selection:text-white tracking-tight relative">
+    
+    <!-- Global background gradient: Soft Blue/Indigo at top fading to White -->
+    <div class="fixed inset-0 pointer-events-none -z-10 bg-gradient-to-b from-blue-100/70 via-slate-50/40 to-white"></div>
 
     <!-- Floating Navigation -->
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50">
@@ -79,7 +82,7 @@
 
     <!-- Essential Hero Section (Vercel-like Minimalist) -->
     <section id="hero"
-        class="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden flex flex-col justify-center min-h-[85vh] bg-[#fafafa] border-b border-slate-200/60">
+        class="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden flex flex-col justify-center min-h-[85vh] border-b border-slate-200/60 transparent">
         <!-- Organic Noise Texture for premium feel -->
         <div class="absolute inset-0 opacity-[0.025] pointer-events-none mix-blend-multiply"
             style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');">
@@ -130,7 +133,15 @@
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 pb-32 max-w-[68rem] relative z-20">
 
         <!-- CHAPTER 01: FOUNDATION -->
-        <section id="foundation" class="pt-24 lg:pt-32">
+        <section id="foundation" class="pt-24 lg:pt-32 relative">
+            
+            <!-- Floating Decorative Bubble -->
+            <div class="absolute -left-8 lg:-left-20 top-40 hidden md:block opacity-40 hover:opacity-100 transition-all duration-500 transform -rotate-3 hover:-translate-y-2 select-none pointer-events-none hover:pointer-events-auto cursor-default">
+                <div class="bg-white border border-slate-200 text-slate-500 font-mono text-[10px] font-bold py-2.5 px-4 rounded-2xl rounded-bl-sm bento-shadow flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M4 15V9a2 2 0 012-2h12a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2z"></path></svg>
+                    sys.parse()
+                </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8 lg:mb-12 reveal">
                 <div class="flex items-center gap-3">
                     <span class="text-sm font-mono font-bold text-slate-400">01 /</span>
@@ -209,7 +220,15 @@
         </section>
 
         <!-- CHAPTER 02: EXPERIENCES -->
-        <section id="experiences" class="pt-24 lg:pt-32">
+        <section id="experiences" class="pt-24 lg:pt-32 relative">
+            
+            <!-- Floating Decorative Bubble -->
+            <div class="absolute -right-4 lg:-right-16 top-64 hidden md:block opacity-40 hover:opacity-100 transition-all duration-500 transform rotate-6 hover:-translate-y-2 select-none pointer-events-none hover:pointer-events-auto cursor-default z-10">
+                <div class="bg-violet-600 border border-violet-700 text-white font-mono text-[10px] font-bold py-2.5 px-4 rounded-2xl rounded-br-sm shadow-lg flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-violet-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Execute Agent
+                </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8 lg:mb-12 reveal">
                 <div class="flex items-center gap-3">
                     <span class="text-sm font-mono font-bold text-slate-400">02 /</span>
@@ -396,7 +415,15 @@
         </section>
 
         <!-- CHAPTER 03: INITIATIVES -->
-        <section id="projects" class="pt-24 lg:pt-32">
+        <section id="projects" class="pt-24 lg:pt-32 relative">
+
+            <!-- Floating Decorative Bubble -->
+            <div class="absolute -left-6 lg:-left-24 top-80 hidden md:block opacity-40 hover:opacity-100 transition-all duration-500 transform -rotate-6 hover:-translate-y-2 select-none pointer-events-none hover:pointer-events-auto cursor-default z-10">
+                <div class="bg-slate-900 border border-slate-800 text-white font-mono text-[10px] font-bold py-2.5 px-4 rounded-2xl rounded-bl-sm shadow-xl flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    24.9% CTR Reached
+                </div>
+            </div>
             <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-4 lg:mb-8 reveal">
                 <div class="flex items-center gap-3">
                     <span class="text-sm font-mono font-bold text-slate-400">03 /</span>
