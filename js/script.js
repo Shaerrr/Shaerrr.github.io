@@ -28,6 +28,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (durationElement) {
         durationElement.textContent = `(총 ${months}개월)`;
     }
+
+    // Scroll Reveal Animation Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.15
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target); // 한 번만 실행
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll(".reveal").forEach(el => {
+        revealObserver.observe(el);
+    });
 });
 
 // 이메일 모달 열기

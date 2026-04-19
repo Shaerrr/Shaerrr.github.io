@@ -5,3 +5,26 @@ body {
 .font-kr {
     font-family: 'Noto Sans KR', sans-serif;
 }
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
+/* Enhanced Bento Card Hover */
+.bento-hover-scale {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bento-hover-scale:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
+}
