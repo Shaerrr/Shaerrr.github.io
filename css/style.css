@@ -1,0 +1,7 @@
+/* Inter 폰트를 기본으로 하고, 한글은 Noto Sans KR로 대체합니다. */
+body {
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+}
+.font-kr {
+    font-family: 'Noto Sans KR', sans-serif;
+}

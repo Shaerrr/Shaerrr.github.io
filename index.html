@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김형후 | FDE 및 데이터 엔지니어</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        /* 커스텀 스크롤바와 애니메이션 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .bento-shadow { box-shadow: 0 4px 20px -4px rgba(0,0,0,0.03); }
+        .bento-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .bento-hover:hover { box-shadow: 0 12px 30px -8px rgba(0,0,0,0.06); transform: translateY(-3px); }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-delayed { animation: float 6s ease-in-out 3s infinite; }
+        
+        /* Background Grid Pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-kr antialiased selection:bg-indigo-100 selection:text-indigo-800 tracking-tight">
+
+    <!-- Floating Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in-up">
+        <div class="bg-white/90 backdrop-blur-md border border-slate-200/60 rounded-full px-2 py-2 shadow-sm flex items-center gap-1 sm:gap-2">
+            <a href="#hero" class="px-5 py-2 rounded-full text-sm font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 transition-colors">Home</a>
+            <a href="#experience" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-50 transition-colors">Experience</a>
+            <a href="#projects" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-50 transition-colors"><span class="text-indigo-500 mr-1">•</span>Projects</a>
+            <a href="#education" class="px-5 py-2 rounded-full text-sm font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-50 transition-colors">Info</a>
+        </div>
+    </nav>
+
+    <!-- Landing Page Hero Section -->
+    <section id="hero" class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden flex flex-col items-center justify-center min-h-[90vh] bg-grid-pattern">
+        <!-- Ambient Background Gradients -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-200/40 rounded-full blur-3xl opacity-50 pointer-events-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
+        <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-3xl opacity-50 pointer-events-none -z-10"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10 w-full max-w-4xl">
+            
+            <!-- Avatar with floating badges -->
+            <div class="relative inline-block mb-10 w-full max-w-sm mx-auto">
+                <div class="absolute inset-0 bg-indigo-500 rounded-[2rem] blur-xl opacity-20 transform scale-90 -translate-y-2"></div>
+                <img src="assets/profile.png" alt="Profile" class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-[2rem] object-cover border-4 border-white shadow-xl mx-auto z-10 bg-white">
+                
+                <!-- Floating Badge 1 -->
+                <div class="absolute top-0 left-0 -translate-x-12 translate-y-4 bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200 shadow-sm animate-float z-20 hidden md:block">
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-bold text-emerald-500 bg-emerald-50 px-1.5 py-0.5 rounded">Impact</span>
+                        <span class="text-xs font-bold text-slate-700">리텐션 11.5%p ↑</span>
+                    </div>
+                </div>
+                
+                <!-- Floating Badge 2 -->
+                <div class="absolute bottom-0 right-0 translate-x-12 -translate-y-4 bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-slate-200 shadow-sm animate-float-delayed z-20 hidden md:block">
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-bold text-indigo-500 bg-indigo-50 px-1.5 py-0.5 rounded">Tech</span>
+                        <span class="text-xs font-bold text-slate-700">AWS & LLM Agent</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Proposition -->
+            <div class="inline-flex items-center space-x-2 bg-white/80 rounded-full px-4 py-1.5 mb-8 border border-slate-200 shadow-sm backdrop-blur-md">
+                <span class="flex h-2 w-2 rounded-full bg-emerald-400 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                </span>
+                <span class="text-[11px] font-bold tracking-wider text-slate-600 uppercase">AI Data Engineer & FDE</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-800 tracking-tight leading-tight mb-8">
+                데이터로 비즈니스 가치를 만드는 <br class="hidden sm:block"/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-blue-500">엔지니어 김형후입니다.</span>
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-slate-500 font-light max-w-2xl mx-auto leading-relaxed mb-12">
+                데이터 파이프라인 설계부터 시각화, 지표 개선, 그리고 LLM 기반 서비스 구현까지. <br class="hidden md:block">복잡한 데이터를 실질적인 비즈니스 효용으로 전환합니다.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects" class="px-8 py-3.5 bg-slate-800 text-white font-semibold rounded-full hover:bg-slate-900 transition-all shadow-lg hover:shadow-slate-800/20 hover:-translate-y-0.5 w-full sm:w-auto">
+                    프로젝트 보기
+                </a>
+                <button onclick="openEmailModal()" class="px-8 py-3.5 bg-white text-slate-700 font-semibold rounded-full border border-slate-200 hover:bg-slate-50 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 w-full sm:w-auto flex justify-center items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    협업 문의하기
+                </button>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <a href="#about" class="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400 hover:text-slate-600 transition-colors animate-bounce hidden md:block">
+                <div class="flex flex-col items-center">
+                    <span class="text-[10px] uppercase font-bold tracking-widest mb-2">Scroll</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pb-24 max-w-6xl space-y-6 relative z-20">
+        
+        <!-- Flavor Text -->
+        <div class="flex justify-end pr-4 text-xs font-mono text-slate-400 mb-2">
+            <span>Explore my journey ↘</span>
+        </div>
+
+        <!-- Tier 1: Philosophy & Skills -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="about">
+            <!-- Brief About Text / Philosophy -->
+            <div class="bg-white rounded-[2rem] p-8 border border-slate-200/50 bento-shadow bento-hover flex flex-col justify-center">
+                <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <div class="w-6 h-6 rounded-lg bg-indigo-50 text-indigo-500 flex items-center justify-center">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    My Focus
+                </h3>
+                <p class="text-slate-500 text-sm leading-relaxed">
+                    단순한 시스템 시각화를 넘어, <strong>사용자 리텐션 개선(+11.5%p)</strong> 및 <strong>CTR 상위 도달(+24.9%)</strong>과 같은 명확한 지표 성장에 기여하는 데이터 파이프라인과 인프라 최적화를 구축하고 발전시키는 데에 집중합니다.
+                </p>
+                <div class="mt-6 pt-6 border-t border-slate-50 flex gap-4">
+                    <a href="https://github.com/Shaerrr" target="_blank" class="text-slate-400 hover:text-slate-800 transition-colors flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.523 2.341 1.084 2.91.832.092-.647.35-1.083.636-1.332-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026z" clip-rule="evenodd" /></svg>
+                        GitHub Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- Skills Box (Spans 2 cols) -->
+            <div class="md:col-span-2 bg-white rounded-[2rem] p-8 sm:p-10 border border-slate-200/50 bento-shadow bento-hover flex flex-col justify-center">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-50">
+                    <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded bg-slate-100 flex items-center justify-center">
+                            <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-700 tracking-wide uppercase">Core Tech Stack</h3>
+                    </div>
+                    <span class="text-xs text-slate-400 font-mono tracking-wider text-left sm:text-right">const skills = [...]</span>
+                </div>
+                
+                <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                    <span class="px-3.5 py-2 bg-slate-50 text-slate-600 rounded-xl border border-slate-200/60 shadow-sm hover:border-slate-300 transition-colors">Python</span>
+                    <span class="px-3.5 py-2 bg-slate-50 text-slate-600 rounded-xl border border-slate-200/60 shadow-sm hover:border-slate-300 transition-colors">FastAPI</span>
+                    <span class="px-3.5 py-2 bg-slate-50 text-slate-600 rounded-xl border border-slate-200/60 shadow-sm hover:border-slate-300 transition-colors">MySQL/MariaDB</span>
+                    <span class="px-3.5 py-2 bg-blue-50/50 text-blue-700 rounded-xl border border-blue-100/80 shadow-sm hover:border-blue-200 transition-colors">AWS</span>
+                    <span class="px-3.5 py-2 bg-blue-50/50 text-blue-700 rounded-xl border border-blue-100/80 shadow-sm hover:border-blue-200 transition-colors">Docker</span>
+                    <span class="px-3.5 py-2 bg-blue-50/50 text-blue-700 rounded-xl border border-blue-100/80 shadow-sm hover:border-blue-200 transition-colors">Airflow</span>
+                    <span class="px-3.5 py-2 bg-indigo-50/50 text-indigo-700 rounded-xl border border-indigo-100/80 shadow-sm hover:border-indigo-200 transition-colors">LLM (Gemini, OpenAI)</span>
+                    <span class="px-3.5 py-2 bg-indigo-50/50 text-indigo-700 rounded-xl border border-indigo-100/80 shadow-sm hover:border-indigo-200 transition-colors">LangChain / Langgraph</span>
+                    <span class="px-3.5 py-2 bg-slate-800 text-white rounded-xl shadow-sm hover:bg-slate-700 transition-colors">데이터 파이프라인</span>
+                    <span class="px-3.5 py-2 bg-slate-800 text-white rounded-xl shadow-sm hover:bg-slate-700 transition-colors">데이터 분석/전처리</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tier 2: Experience -->
+        <div class="bg-white rounded-[2rem] border border-slate-200/50 overflow-hidden bento-shadow" id="experience">
+            <!-- Header bar like a minimalist app window -->
+            <div class="bg-slate-50 border-b border-slate-100/60 px-8 py-4 flex justify-between items-center">
+                <div class="flex gap-2">
+                    <span class="w-3 h-3 rounded-full bg-slate-200"></span>
+                    <span class="w-3 h-3 rounded-full bg-slate-200"></span>
+                    <span class="w-3 h-3 rounded-full bg-slate-200"></span>
+                </div>
+                <div class="font-mono text-xs font-bold text-slate-400 tracking-wider">EXPERIENCE</div>
+            </div>
+            
+            <div class="p-8 sm:p-12">
+                <div class="flex flex-col md:flex-row justify-between md:items-end mb-10 pb-6 border-b border-slate-50">
+                    <div>
+                        <div class="text-sm font-bold text-indigo-500 mb-2 tracking-wide uppercase">2025.07 ~ 현재 진행형</div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight">
+                            (주)아파트너스 <span class="text-slate-400 font-medium ml-2">프로덕트팀 · 주임</span>
+                        </h2>
+                    </div>
+                    <div class="mt-4 md:mt-0 font-bold text-slate-500 bg-slate-50 border border-slate-100 px-4 py-2 rounded-xl text-sm" id="experience-duration">
+                        <!-- JS fills this (총 N개월) -->
+                    </div>
+                </div>
+
+                <!-- Timeline grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10">
+                    
+                    <!-- Task 1 -->
+                    <div class="relative group cursor-default">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                            <h4 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">도메인 특화 법령 데이터 자동화 파이프라인</h4>
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-2 pl-4.5">도메인 법령 수집 → 이메일 콜백 알림 → Human-in-the-loop 검수 페이지 구성 → 벡터 DB 연동 자동화</p>
+                        
+                        <div class="ml-4.5 mt-3 mb-4 bg-slate-50/50 border border-slate-100 rounded-xl p-4 group-hover:bg-slate-50 transition-colors shadow-[inset_0_1px_3px_rgba(0,0,0,0.02)]">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="bg-emerald-100/50 border border-emerald-200/50 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">IMPACT</span>
+                                <span class="text-sm font-extrabold text-slate-700">작업 시간 압도적 단축 (1영업일 → 3분)</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed font-medium">1영업일 이상 소요되던 수작업 기반 수집 및 파싱 병목을 해결. 검수 과정을 제외한 전 과정(수집, 파싱, DB Update)을 3분 이내로 단축하여 실무진의 업무 효율 극대화.</p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pl-4.5">
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">Python</span>
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">Airflow</span>
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">AWS</span>
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">QDrant</span>
+                        </div>
+                    </div>
+
+                    <!-- Task 2 -->
+                    <div class="relative group cursor-default">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                            <h4 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">챗봇 주간 인기 키워드 기능 고도화</h4>
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-2 pl-4.5">챗봇데이터 집계 → NLP 텍스트 정규화 → 시간/빈도 스코어링 → LLM 재가공</p>
+                        
+                        <div class="ml-4.5 mt-3 mb-4 bg-slate-50/50 border border-slate-100 rounded-xl p-4 group-hover:bg-slate-50 transition-colors shadow-[inset_0_1px_3px_rgba(0,0,0,0.02)]">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="bg-emerald-100/50 border border-emerald-200/50 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">IMPACT</span>
+                                <span class="text-sm font-extrabold text-slate-700">CTR 24.9% 상승 달성</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed font-medium">기존 2.09%에서 2.61%로 상승(+0.52%p)하며 지표 개선. 최종 로드맵(3.0%) 달성을 위해 노출 및 문구 최적화 지속.</p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pl-4.5">
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">APScheduler</span>
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">NLP(Kiwi)</span>
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">Gemini</span>
+                        </div>
+                    </div>
+
+                    <!-- Task 3 -->
+                    <div class="relative group cursor-default">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                            <h4 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">AI 주간 리포트 생성 워크플로우</h4>
+                        </div>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-2 pl-4.5">이슈 데이터 수집 → 키워드 도출 → 기반 정보 재수집 → 리포트 생성 (Langgraph)</p>
+                        
+                        <div class="ml-4.5 mt-3 mb-4 bg-slate-50/50 border border-slate-100 rounded-xl p-4 group-hover:bg-slate-50 transition-colors shadow-[inset_0_1px_3px_rgba(0,0,0,0.02)]">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="bg-emerald-100/50 border border-emerald-200/50 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded shadow-sm">IMPACT</span>
+                                <span class="text-sm font-extrabold text-slate-700">유저 리텐션 11.5%p 개선</span>
+                            </div>
+                            <p class="text-xs text-slate-500 leading-relaxed font-medium">리포트 확인 유저의 1주 리텐션(47.3%)이 미확인 유저 대비 11.5%p 상회, 초과 목표(+8.0%p) 달성 및 초기 효용검증 완료.</p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pl-4.5">
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">Langgraph</span>
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">Langfuse</span>
+                            <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">FastAPI</span>
+                        </div>
+                    </div>
+
+                    <!-- Task 4 & 5 -->
+                    <div class="space-y-10">
+                        <div class="relative group cursor-default">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-indigo-400 transition-colors"></span>
+                                <h4 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">STT 회의록 자동 변환 시스템</h4>
+                            </div>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4 pl-4.5">최대 3시간 분량의 음성을 분산 처리하고, OpenAI 및 Gemini를 활용하여 1~2분 내 텍스트 요약 및 문서 작성을 제공하는 초고속 파이프라인 설계</p>
+                            <div class="flex flex-wrap gap-1.5 pl-4.5">
+                                <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">OpenAI, Gemini</span>
+                                <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">Docker, Celery, Redis</span>
+                            </div>
+                        </div>
+
+                        <div class="relative group cursor-default">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-indigo-400 transition-colors"></span>
+                                <h4 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">공고문 자동 생성 파이프라인</h4>
+                            </div>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4 pl-4.5">유저의 입력 데이터만으로 Langgraph 기반의 복합 LLM 워크플로우를 거쳐 정형화된 공고문을 완벽하게 자동 생성</p>
+                            <div class="flex flex-wrap gap-1.5 pl-4.5">
+                                <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">Langgraph</span>
+                                <span class="text-[11px] font-mono bg-slate-50 border border-slate-100 text-slate-500 px-2 py-1 rounded">OpenAI / Gemini API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tier 3: Projects -->
+        <div class="flex items-center gap-4 mt-16 mb-4 px-2" id="projects">
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight">Key Projects</h3>
+            <div class="h-px bg-slate-200/60 flex-1"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-white rounded-[2rem] p-8 border border-slate-200/50 bento-shadow bento-hover flex flex-col group relative overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-10 h-10 rounded-2xl bg-slate-50 border border-slate-100 text-indigo-500 flex items-center justify-center shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-300 tracking-wider font-mono px-2 py-1 rounded-full border border-slate-100">25.04-05</span>
+                </div>
+                <h4 class="text-xl font-extrabold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors">Discord 회의정리 <br> AI Agent 시스템</h4>
+                <p class="text-slate-500 text-sm mb-6 flex-1">Google Gemini API와 LangChain Agent를 활용하여, 회의록을 자연어로 쿼리(NL to SQL)하여 검색하고 문서로 정리해주는 질의응답 시스템 구현.</p>
+                <div class="text-[11px] font-bold text-slate-400 bg-slate-50 border border-slate-100 rounded-lg px-3 py-2 uppercase tracking-wide inline-block w-max">개발 전반 담당</div>
+            </div>
+
+            <div class="bg-white rounded-[2rem] p-8 border border-slate-200/50 bento-shadow bento-hover flex flex-col group relative overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-10 h-10 rounded-2xl bg-slate-50 border border-slate-100 text-blue-500 flex items-center justify-center shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-300 tracking-wider font-mono px-2 py-1 rounded-full border border-slate-100">25.03-04</span>
+                </div>
+                <h4 class="text-xl font-extrabold text-slate-800 mb-3 group-hover:text-blue-500 transition-colors">AI 기반 <br> 음성주문 키오스크</h4>
+                <p class="text-slate-500 text-sm mb-6 flex-1">카페 메뉴와 연동하여 자연어 음성 입력을 분석해 멀티 턴 통신 및 DB를 매핑. 프롬프팅 최적화로 주문의도 오분류 케이스를 1% 미만 수준으로 억제.</p>
+                <div class="text-[11px] font-bold text-slate-400 bg-slate-50 border border-slate-100 rounded-lg px-3 py-2 uppercase tracking-wide inline-block w-max">대화형 LLM 개발</div>
+            </div>
+
+            <div class="bg-white rounded-[2rem] p-8 border border-slate-200/50 bento-shadow bento-hover flex flex-col group relative overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-10 h-10 rounded-2xl bg-slate-50 border border-slate-100 text-purple-500 flex items-center justify-center shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-300 tracking-wider font-mono px-2 py-1 rounded-full border border-slate-100">25.03</span>
+                </div>
+                <h4 class="text-xl font-extrabold text-slate-800 mb-3 group-hover:text-purple-500 transition-colors">실시간 게임 <br> 음성 명령 시스템</h4>
+                <p class="text-slate-500 text-sm mb-6 flex-1">음성 명령 제어를 ENUM-JSON으로 파싱, FastAPI서버 게임 연동. 단 이틀만에 엔드투엔드 프로토타입 구현 및 명령 수행률 90% 달성 기록.</p>
+                <div class="text-[11px] font-bold text-slate-400 bg-slate-50 border border-slate-100 rounded-lg px-3 py-2 uppercase tracking-wide inline-block w-max">로직 & 서버 API 구현</div>
+            </div>
+            
+        </div>
+
+        <!-- Tier 4: Education & Certs -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-12" id="education">
+            
+            <!-- Edu -->
+            <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-slate-200/50 bento-shadow">
+                <h3 class="text-lg font-bold text-slate-800 mb-8 pb-4 flex items-center justify-between border-b border-slate-50">
+                    Activity & Education
+                    <span class="text-xs font-mono font-medium text-slate-400 bg-slate-50 border border-slate-100 px-2 py-1 rounded shadow-sm">Records</span>
+                </h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="w-2.5 h-2.5 mt-1.5 rounded-full bg-slate-200 border-2 border-white shadow-sm flex-shrink-0 relative">
+                            <div class="absolute w-px h-full bg-slate-100 left-1/2 -translate-x-1/2 top-3"></div>
+                        </div>
+                        <div class="pb-2">
+                            <h4 class="font-bold text-slate-700">홍익대학교 경영학과 졸업</h4>
+                            <p class="text-[13px] text-slate-500 mb-1">(학점 3.78 / 4.5)</p>
+                            <div class="text-[11px] font-mono text-slate-400 tracking-wide">2018.03 - 2025.02</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-2.5 h-2.5 mt-1.5 rounded-full bg-slate-200 border-2 border-white shadow-sm flex-shrink-0 relative">
+                            <div class="absolute w-px h-full bg-slate-100 left-1/2 -translate-x-1/2 top-3"></div>
+                        </div>
+                        <div class="pb-2">
+                            <h4 class="font-bold text-slate-700">원티드 포텐업 1기 수료</h4>
+                            <p class="text-[13px] text-slate-500 mb-1">AI 에이전트 개발 트랙 (생성형 AI, ML/DL 수강)</p>
+                            <div class="text-[11px] font-mono text-slate-400 tracking-wide">2024.12 - 2025.06</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-2.5 h-2.5 mt-1.5 rounded-full bg-slate-200 border-2 border-white shadow-sm flex-shrink-0 relative">
+                            <div class="absolute w-px h-full bg-slate-100 left-1/2 -translate-x-1/2 top-3"></div>
+                        </div>
+                        <div class="pb-2">
+                            <h4 class="font-bold text-slate-700">토스인슈어런스 단기 인턴 프로그램</h4>
+                            <p class="text-[13px] text-slate-500 mb-1">1기 수료 (금융, 자산 포트폴리오 교육)</p>
+                            <div class="text-[11px] font-mono text-slate-400 tracking-wide">2024.07 - 2024.08</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-2.5 h-2.5 mt-1.5 rounded-full bg-slate-200 border-2 border-white shadow-sm flex-shrink-0"></div>
+                        <div>
+                            <h4 class="font-bold text-slate-700">2023 데이터 청년 캠퍼스</h4>
+                            <p class="text-[13px] text-slate-500 mb-1">상명대 금융/데이터 융합 프로젝트 (우수상 수상)</p>
+                            <div class="text-[11px] font-mono text-slate-400 tracking-wide">2023.07 - 2023.09</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certs -->
+            <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-slate-200/50 bento-shadow">
+                <h3 class="text-lg font-bold text-slate-800 mb-6 pb-4 flex items-center justify-between border-b border-slate-50">
+                    Certifications
+                    <span class="text-xs font-mono font-medium text-slate-400 bg-slate-50 border border-slate-100 px-2 py-1 rounded shadow-sm">Licenses</span>
+                </h3>
+                <div class="space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 bg-slate-50 border border-slate-100/50 rounded-2xl hover:border-slate-200 transition-colors">
+                        <div class="mb-2 sm:mb-0">
+                            <h4 class="font-bold text-slate-700">빅데이터 분석기사</h4>
+                            <p class="text-[11px] text-slate-400 font-mono tracking-wide mt-0.5">한국데이터산업진흥원</p>
+                        </div>
+                        <span class="text-[11px] font-bold text-slate-600 bg-white border border-slate-200 px-3 py-1.5 rounded-xl shadow-sm self-start sm:self-auto w-max">2025.12 합격</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 bg-slate-50 border border-slate-100/50 rounded-2xl hover:border-slate-200 transition-colors">
+                        <div class="mb-2 sm:mb-0">
+                            <h4 class="font-bold text-slate-700">SQL개발자 (SQLD)</h4>
+                            <p class="text-[11px] text-slate-400 font-mono tracking-wide mt-0.5">한국데이터산업진흥원</p>
+                        </div>
+                        <span class="text-[11px] font-bold text-slate-600 bg-white border border-slate-200 px-3 py-1.5 rounded-xl shadow-sm self-start sm:self-auto w-max">2024.09 합격</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 bg-slate-50 border border-slate-100/50 rounded-2xl hover:border-slate-200 transition-colors">
+                        <div class="mb-2 sm:mb-0">
+                            <h4 class="font-bold text-slate-700">데이터분석준전문가 (ADsP)</h4>
+                            <p class="text-[11px] text-slate-400 font-mono tracking-wide mt-0.5">한국데이터산업진흥원</p>
+                        </div>
+                        <span class="text-[11px] font-bold text-slate-600 bg-white border border-slate-200 px-3 py-1.5 rounded-xl shadow-sm self-start sm:self-auto w-max">2023.06 합격</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 bg-slate-50 border border-slate-100/50 rounded-2xl hover:border-slate-200 transition-colors">
+                        <div class="mb-2 sm:mb-0">
+                            <h4 class="font-bold text-slate-700">TOEIC Speaking Test</h4>
+                            <p class="text-[11px] text-slate-400 font-mono tracking-wide mt-0.5">최종 점수 120 / intermediate Mid2 급</p>
+                        </div>
+                        <span class="text-[11px] font-bold text-slate-500 bg-white border border-slate-200 px-3 py-1.5 rounded-xl shadow-sm self-start sm:self-auto w-max">2025.10 PASS</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="pb-16 text-center text-slate-400 text-xs font-mono">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Kim HyungHu. Handcrafted with TailwindCSS.</p>
+    </footer>
+
+    <!-- Email Modal -->
+    <div id="emailModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-slate-900/20 backdrop-blur-md transition-opacity">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl relative border border-slate-100/50 animate-fade-in-up">
+            <button onclick="closeEmailModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 bg-slate-50 hover:bg-slate-100 transition-colors rounded-full p-2">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6 text-indigo-500 shadow-sm border border-indigo-100/50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-2 tracking-tight">협업 및 이메일 문의</h3>
+            <p class="text-slate-500 text-sm mb-6">프로젝트 제안 및 연락은 아래의 메일로 부탁드립니다!</p>
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex justify-between items-center group/copy hover:border-indigo-200 transition-colors">
+                <!-- TODO: 이곳에 자신의 이메일 주소를 입력하세요 -->
+                <span class="text-sm font-semibold text-slate-700 select-all" id="modalEmailText">dcfjk1234@naver.com</span>
+                <button onclick="copyEmail()" class="text-indigo-500 hover:text-indigo-700 hover:bg-indigo-50 text-[10px] font-bold uppercase tracking-widest flex items-center shrink-0 ml-2 bg-white border border-slate-200 px-2 py-1 rounded-md opacity-0 group-hover/copy:opacity-100 transition-all shadow-sm">
+                    Copy
+                </button>
+            </div>
+            <div id="copyToast" class="mt-4 text-[11px] font-bold uppercase tracking-widest text-emerald-500 text-center opacity-0 transition-opacity">Copied! ✓</div>
+        </div>
+    </div>
+
+</body>
+</html>
